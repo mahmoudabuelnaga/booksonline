@@ -1,5 +1,6 @@
-# Text backup files
-*.bak
-
-# Database
-*.sqlite3
+venv
+*.pyc
+staticfiles
+.env
+db.sqlite3
+limitless-plateau-42983/*
