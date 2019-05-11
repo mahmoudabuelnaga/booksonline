@@ -21,21 +21,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'r2*ycr_nqiins_gic+$2lsfrz*7wkcf9ph0%^r)7u4ogfnhd$o'
-import os
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'r2*ycr_nqiins_gic+$2lsfrz*7wkcf9ph0%^r)7u4ogfnhd$o')
+SECRET_KEY = 'r2*ycr_nqiins_gic+$2lsfrz*7wkcf9ph0%^r)7u4ogfnhd$o'
+# import os
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'r2*ycr_nqiins_gic+$2lsfrz*7wkcf9ph0%^r)7u4ogfnhd$o')
 
 
 # Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
-DATABASES = { 'default': dj_database_url.config() }
+# import dj_database_url
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# # DATABASES['default'].update(db_from_env)
+# DATABASES = { 'default': dj_database_url.config() }
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = True
+# DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 
 ALLOWED_HOSTS = []
@@ -169,6 +169,6 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # AUTH_USER_MODEL = 'account.CustomUser'
 
-import django_heroku
-django_heroku.settings(locals())
+# import django_heroku
+# django_heroku.settings(locals())
 # django_heroku.settings(locals())
