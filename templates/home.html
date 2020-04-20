@@ -68,12 +68,12 @@ world of books
                   {% if famous_book.auther.img %}
                   <img style="width:15%" class="img-fluid" src="{{famous_book.auther.img.url}}" alt="">
                   {% endif %}
-                  <a href="{% url 'auther-detail' famous_book.auther.slug %}">{{famous_book.auther.name}}</a>
+                  <a href="{% url 'auther-detail' famous_book.auther.id %}">{{famous_book.auther.name}}</a>
                 </div>
                 <div class="clearfix"></div>
               </div>
               <div class="card-read-more">
-                <a href="{% url 'book-detail' famous_book.slug %}" class="btn btn-link btn-block">
+                <a href="{% url 'book-detail' famous_book.id %}" class="btn btn-link btn-block">
                   View Book
                 </a>
               </div>
@@ -88,40 +88,4 @@ world of books
 <br>
 <!-- End famous_book area -->
 
-<!-- Start consultans Area -->
-<section class="consultans-area section-gap" id="consultant">
-  <div class="container">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-8 pb-80 header-text">
-        <h2 class="heading-two">
-          Our Team
-        </h2>
-      </div>
-    </div>
-    <div class="row">
-      {% for person in team %}
-      <div class="col-lg-3 col-md-3 vol-wrap">
-        <div class="single-con">
-          <div class="content">
-              {% comment %} <a href="#" target="_blank"> {% endcomment %}
-                <div class="content-overlay"></div>
-                {% if person.img %}
-                <img class="content-image img-fluid d-block mx-auto" src="{{ person.img.url }}"  style="margin-bottom: 6%;height:320px;" alt="">
-                {% endif %}
-                  <div class="content-details fadeIn-bottom">
-                    <h4>{{ person.name }}</h4>
-                    <p>
-                      {{person.specialty}}
-                    </p>
-                  </div>
-              {% comment %} </a> {% endcomment %}
-           </div>
-        </div>
-      </div>
-      {% endfor %}
-
-    </div>
-  </div>
-</section>
-<!-- End consultans Area -->
 {% endblock%}

@@ -32,12 +32,12 @@ Books
                 {% if book.auther.img %}
                 <img style="width:15%" class="img-fluid" src="{{book.auther.img.url}}" alt="">
                 {% endif %}
-                <a href="{% url 'auther-detail' book.auther.slug %}">{{book.auther.name}}</a>
+                <a href="{{ book.auther.get_absolute_url }}">{{book.auther.name}}</a>
               </div>
               <div class="clearfix"></div>
             </div>
             <div class="card-read-more">
-              <a href="{% url 'book-detail' book.slug %}" class="btn btn-link btn-block">
+              <a href="{{ book.get_absolute_url }}" class="btn btn-link btn-block">
                 Details
               </a>
             </div>
