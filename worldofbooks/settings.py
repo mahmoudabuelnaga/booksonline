@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
+import django_heroku
 import os
 
 
@@ -157,11 +158,12 @@ MEDIA_URL = '/media/'
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+django_heroku.settings(locals())
 
 # send email
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'worldofbooks1751998@gmail.com'
-EMAIL_HOST_PASSWORD = 'worldofbooks1751998@groub13'
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -171,7 +173,3 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 # AUTH_USER_MODEL = 'account.CustomUser'
-
-# import django_heroku
-# django_heroku.settings(locals())
-# django_heroku.settings(locals())
