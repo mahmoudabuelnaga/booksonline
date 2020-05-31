@@ -1,1 +1,1 @@
-web: gunicorn worldofbooks.wsgi --log-file -
+web: gunicorn worldofbooks.wsgi
