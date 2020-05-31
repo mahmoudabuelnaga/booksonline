@@ -97,8 +97,12 @@ WSGI_APPLICATION = 'worldofbooks.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'onlineBooks',
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
 
@@ -153,17 +157,15 @@ MEDIA_URL = '/media/'
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#send email
-EMAIL_HOST          = 'smtp.gmail.com'
-EMAIL_HOST_USER     = 'worldofbooks1751998@gmail.com'
+# send email
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'worldofbooks1751998@gmail.com'
 EMAIL_HOST_PASSWORD = 'worldofbooks1751998@groub13'
-EMAIL_PORT          = 587
-EMAIL_USE_TLS       = True
-EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-
-
-#accounts
+# accounts
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
